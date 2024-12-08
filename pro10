@@ -1,0 +1,38 @@
+Package mypack
+// Inside a folder named 'mypack'
+package mypack;
+public class MyPackageClass {
+ public void displayMessage() {
+ System.out.println("Hello from MyPackageClass in mypack package!");
+ }
+ // New utility method
+ public static int addNumbers(int a, int b) {
+ return a + b;
+ }
+}
+Now, let’s create the main program in a different file outside 
+the mypack folder:
+PackageDemo class using mypack Package
+// Main program outside the mypack folder
+import mypack.MyPackageClass;
+//import mypack.*;
+public class PackageDemo {
+ public static void main(String[] args) {
+// Creating an instance of MyPackageClass from the mypack package
+ MyPackageClass myPackageObject = new MyPackageClass();
+ // Calling the displayMessage method from MyPackageClass
+ myPackageObject.displayMessage();
+ // Using the utility method addNumbers from MyPackageClass
+ int result = MyPackageClass.addNumbers(5, 3);
+ System.out.println("Result of adding numbers: " + result);
+ }
+}
+To compile and run this program, you need to follow these steps:
+Organize your directory structure as follows:
+project-directory/
+├── mypack/
+│ └── MyPackageClass.java
+└── PackageDemo.java
+Compile the files:
+javac mypack/MyPackageClass.java
+javac PackageDemo.java
